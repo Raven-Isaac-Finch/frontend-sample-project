@@ -16,6 +16,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
+import trFlag from '../assets/tr-flag.png';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -23,6 +24,7 @@ const Search = styled('div')(({ theme }) => ({
   alignItems: 'center',
   position: 'relative',
   borderRadius: 5,
+  border: "1px solid lightgray",
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
@@ -37,7 +39,7 @@ const Search = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
+  color: 'gray',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -134,7 +136,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{borderRadius: 3, boxShadow: '0px 5px 50px -15px rgba(0,0,0,0.55)', backgroundColor: 'white'}}>
+      <AppBar position="static" sx={{borderRadius: 3, boxShadow: '0px 5px 100px -15px rgba(0,0,0,0.2)', backgroundColor: 'white'}}>
         <Toolbar>
           <IconButton size="large" edge="start" color="inherit" aria-label="open drawer" sx={{ mr: 2 }} >
             <MenuIcon sx={{ color: 'black' }}/>
@@ -174,18 +176,18 @@ export default function PrimarySearchAppBar() {
               />
             </Search>
             <IconButton
-                size="large"
+                size="small"
                 edge="end"
                 aria-label="account of current user"
                 aria-haspopup="true"
                 onClick={handleProfileMenuOpen}
                 color="inherit" >
-              <AccountCircle />
+              <AccountCircle sx={{ color: 'black' }} />
             </IconButton>
-            <IconButton>
-              <img src='../assets/tr-flag.png' />
+            <IconButton size="small" sx={{ margin: '0 2px 0 5px' }}>
+              <img src={ trFlag } style={{ width: 24 }} />
             </IconButton>
-            <IconButton size="large" color="inherit">
+            <IconButton size="small" color="inherit">
               <Badge badgeContent={9} color="error">
                 <NotificationsIcon  sx={{ color: 'black' }}/>
               </Badge>
