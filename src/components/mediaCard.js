@@ -6,7 +6,7 @@ import Divider from '@mui/material/Divider';
 
 export default function MediaCard({ img, title, value, percent, timeText }) {
   return (
-    <Card sx={{ width: 250, position: 'relative', overflow: 'visible', boxShadow: '0px 10px 50px -5px rgba(0,0,0,0.2)', borderRadius: 3 }}>
+    <Card sx={{ width: '100%', position: 'relative', overflow: 'visible', boxShadow: '0px 10px 50px -5px rgba(0,0,0,0.2)', borderRadius: 3 }}>
       { img }
       <CardContent >
         <Typography gutterBottom variant="p" component="p" sx={{ width: '100%', display: 'flex', justifyContent: 'flex-end', color: 'darkgray', fontSize: 12 }} >

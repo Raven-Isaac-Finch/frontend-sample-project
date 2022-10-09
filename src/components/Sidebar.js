@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useCallback } from 'react'
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -6,32 +6,59 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import InboxIcon from '@mui/icons-material/Inbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import icon from '../assets/32bit.png';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import PhotoIcon from '@mui/icons-material/Photo';
+import AppsIcon from '@mui/icons-material/Apps';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import FoundationIcon from '@mui/icons-material/Foundation';
+import ViewInArIcon from '@mui/icons-material/ViewInAr';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import { Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import ClearIcon from '@mui/icons-material/Clear';
+import { UserContext } from '../context/UserContext';
+import { data } from '../data';
+import LocalizedStrings from 'react-localization';
 
-export default function BasicList() {
+export default function Sidebar({ ProileOpen, SidebarClose, currentFlag, user }) {
+
+  const navigate = useNavigate();
+  const handleOnClick = useCallback(() => navigate('/contact'), [navigate]);
+
+  const { userLang } = React.useContext(UserContext);
+  const [userLangValue, setUserLang] = userLang;
+  let strings = new LocalizedStrings( data );
+  strings.setLanguage(userLangValue);
+
   return (
-    <Box sx={{ width: '100%', maxWidth: 360, bgcolor: '#2b2828', color: 'white' }}>
+    <Box sx={{ width: '100%', maxWidth: 360, bgcolor: '#2b2828', color: 'white', borderRadius: 3 }}>
       <nav aria-label="main mailbox folders">
         <List>
-          <ListItem>
-            <ListItemButton>
+          <ClearIcon onClick={SidebarClose} 
+            sx={{ color: 'white', 
+              display: { xs: 'block', md: 'none' }, 
+              position: 'absolute', 
+              right: 10, 
+              cursor: 'pointer'}}/>
+          <ListItem sx={{ marginTop: 2 }}>
+            <ListItemButton onClick={ handleOnClick }>
               <ListItemIcon>
                 <img src={ icon } />
               </ListItemIcon>
-              <ListItemText primary="Dashboard" />
+              <ListItemText primary={ strings.contact } />
             </ListItemButton>
           </ListItem>
           <Divider sx={{ borderImage: 'linear-gradient(to right, #2b2828, #555555, #2b2828) 1' }}/>
           <ListItem>
-            <ListItemButton>
+            <ListItemButton onClick={ ProileOpen }>
               <ListItemIcon>
                 <AccountCircleIcon sx={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Profile" />
+              <ListItemText primary={ user ? user : strings.profile } />
               <KeyboardArrowDownIcon />
             </ListItemButton>
           </ListItem>
@@ -39,75 +66,79 @@ export default function BasicList() {
           <ListItem>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon sx={{ color: 'white' }} />
+                <DashboardIcon sx={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Dashboard" />
+              <ListItemText primary={ strings.dashboard } />
               <KeyboardArrowDownIcon />
             </ListItemButton>
           </ListItem>
-          <ListItemText primary="PAGES" />
-          <ListItem>
+          <Typography sx={{ fontSize: 12, fontWeight: 'bold', paddingLeft: 3 }}>
+            { strings.title1 }
+          </Typography>
+          <ListItem sx={{ paddingBottom: 0 }}>
             <ListItemButton>
               <ListItemIcon>
-                <DraftsIcon sx={{ color: 'white' }} />
+                <PhotoIcon sx={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Pages" />
+              <ListItemText primary={ strings.pages } />
+              <KeyboardArrowDownIcon />
+            </ListItemButton>
+          </ListItem>
+          <ListItem sx={{ paddingBottom: 0 }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <AppsIcon sx={{ color: 'white' }} />
+              </ListItemIcon>
+              <ListItemText primary={ strings.applications } />
+              <KeyboardArrowDownIcon />
+            </ListItemButton>
+          </ListItem>
+          <ListItem sx={{ paddingBottom: 0 }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <ShoppingBasketIcon sx={{ color: 'white' }} />
+              </ListItemIcon>
+              <ListItemText primary={ strings.eCommerce } />
               <KeyboardArrowDownIcon />
             </ListItemButton>
           </ListItem>
           <ListItem>
             <ListItemButton>
               <ListItemIcon>
-                <DraftsIcon sx={{ color: 'white' }} />
+                <AssignmentIcon sx={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Applications" />
-              <KeyboardArrowDownIcon />
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>
-              <ListItemIcon>
-                <DraftsIcon sx={{ color: 'white' }} />
-              </ListItemIcon>
-              <ListItemText primary="E-commerce" />
-              <KeyboardArrowDownIcon />
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>
-              <ListItemIcon>
-                <DraftsIcon sx={{ color: 'white' }} />
-              </ListItemIcon>
-              <ListItemText primary="Authentication" />
+              <ListItemText primary={ strings.authentication } />
               <KeyboardArrowDownIcon />
             </ListItemButton>
           </ListItem>
           <Divider sx={{ borderImage: 'linear-gradient(to right, #2b2828, #555555, #2b2828) 1' }}/>
-          <ListItemText primary="DOCS" />
-          <ListItem>
+          <Typography sx={{ fontSize: 12, fontWeight: 'bold', padding: '15px 0 0 25px' }}>
+            { strings.title2 }
+          </Typography>
+          <ListItem sx={{ paddingBottom: 0 }}>
             <ListItemButton>
               <ListItemIcon>
-                <DraftsIcon sx={{ color: 'white' }} />
+                <FoundationIcon sx={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Basics" />
+              <ListItemText primary={ strings.basics } />
+              <KeyboardArrowDownIcon />
+            </ListItemButton>
+          </ListItem>
+          <ListItem sx={{ paddingBottom: 0 }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <ViewInArIcon sx={{ color: 'white' }} />
+              </ListItemIcon>
+              <ListItemText primary={ strings.components } />
               <KeyboardArrowDownIcon />
             </ListItemButton>
           </ListItem>
           <ListItem>
             <ListItemButton>
               <ListItemIcon>
-                <DraftsIcon sx={{ color: 'white' }} />
+                <ReceiptLongIcon sx={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Components" />
-              <KeyboardArrowDownIcon />
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>
-              <ListItemIcon>
-                <DraftsIcon sx={{ color: 'white' }} />
-              </ListItemIcon>
-              <ListItemText primary="Change Logs" />
+              <ListItemText primary={ strings.changeLogs } />
               <KeyboardArrowDownIcon />
             </ListItemButton>
           </ListItem>

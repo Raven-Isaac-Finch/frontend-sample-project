@@ -8,7 +8,7 @@ import Divider from '@mui/material/Divider';
 
 export default function ProductCard({ productImg, productTitle, productText, productPrice, productLocation }) {
   return (
-    <Card sx={{ width: '32%', position: 'relative', overflow: 'visible', boxShadow: '0px 10px 50px -5px rgba(0,0,0,0.2)', borderRadius: 3 }}>
+    <Card sx={{ width: '100%', position: 'relative', overflow: 'visible', boxShadow: '0px 10px 50px -5px rgba(0,0,0,0.2)', borderRadius: 3 }}>
       <CardMedia
         component="img"
         height="240"
