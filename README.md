@@ -1,12 +1,40 @@
 # frontend-sample-project
-A sample project with Material UI
 
+The project is live here at:
 
-<!-- **There was no info regarding the contact page so I modified Dashboard on top left to navigate to the contact page. 
+However, if you would like to get it working locally, feel free to clone the repo.
 
-**There was no info regarding the sidebar popup, so you can display it by hitting the Dashboard breadcrumb
+  
 
-**Skipped this: Please check if characters entered are valid and inform the user (e.g. red/green border) because users cant enter anything other than numbers 
+```
+ npm install
+```
 
-**TR country list is taken from Google Translate to save time, there might be slight translation issues.
--->
+for modules, followed by
+
+```
+ npm start
+```
+
+Should do the trick.
+
+  
+
+You can also find **.gitignore** file inside the project.
+
+***
+
+### <ins>**Notes**</ins>
+
++ There was no information regarding the contact page and how to access it; therefore, I modified "Dashboard" on top left corner of the page to navigate to the contact page.
+
+  
+
++ There was no information regarding the access to the sidebar popup in mobile devices; therefore, I buildt it so that you can display it by hitting the Dashboard breadcrumb at the top.
+   + _TR country list is taken from Google Translate to save time, there might be slight translation issues._
+
++ After submitting the contact form, the country output is <ins>country's name</ins> instead of <ins>its code</ins>.
+
+***
+
++ **Skipped Feature:** I skipped the validation process of the characters for the phone number field in contact page because the user is not allowed to enter any characters other than numbers.
