@@ -58,7 +58,7 @@ export default function PrimarySearchAppBar({ ProfileOpen, SidebarOpen, currentF
   strings.setLanguage(userLangValue);
 
   const languageHandler = () => {
-    if(userLangValue == 'en') {
+    if(userLangValue === 'en') {
       setUserLang('tr');
     } else {
       setUserLang('en');

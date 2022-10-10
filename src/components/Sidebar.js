@@ -30,7 +30,7 @@ export default function Sidebar({ ProileOpen, SidebarClose, currentFlag, user })
   const handleOnClick = useCallback(() => navigate('/contact'), [navigate]);
 
   const { userLang } = React.useContext(UserContext);
-  const [userLangValue, setUserLang] = userLang;
+  const [userLangValue] = userLang;
   let strings = new LocalizedStrings( translationData );
   strings.setLanguage(userLangValue);
 
@@ -47,7 +47,7 @@ export default function Sidebar({ ProileOpen, SidebarClose, currentFlag, user })
           <ListItem sx={{ marginTop: 2 }}>
             <ListItemButton onClick={ handleOnClick }>
               <ListItemIcon>
-                <img src={ icon } />
+                <img src={ icon } alt="icon"/>
               </ListItemIcon>
               <ListItemText primary={ strings.contact } />
             </ListItemButton>
@@ -73,7 +73,7 @@ export default function Sidebar({ ProileOpen, SidebarClose, currentFlag, user })
             </ListItemButton>
           </ListItem>
           <Typography sx={{ fontSize: 12, fontWeight: 'bold', paddingLeft: 3 }}>
-            { strings.title1 }
+            { strings.titleTop }
           </Typography>
           <ListItem sx={{ paddingBottom: 0 }}>
             <ListItemButton>
@@ -113,7 +113,7 @@ export default function Sidebar({ ProileOpen, SidebarClose, currentFlag, user })
           </ListItem>
           <Divider sx={{ borderImage: 'linear-gradient(to right, #2b2828, #555555, #2b2828) 1' }}/>
           <Typography sx={{ fontSize: 12, fontWeight: 'bold', padding: '15px 0 0 25px' }}>
-            { strings.title2 }
+            { strings.titleMid }
           </Typography>
           <ListItem sx={{ paddingBottom: 0 }}>
             <ListItemButton>

@@ -81,6 +81,7 @@ export default function ContactPage() {
     if(!mail) {
       requiredField(mail);
     } else {
+      //eslint-disable-next-line
       if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
         setFormEmail(mail);
         return
@@ -108,7 +109,7 @@ export default function ContactPage() {
   let enCountries = countryList.en;
   let trCountries = countryList.tr;
   let shownList;
-  if(userLangValue == 'en'){
+  if(userLangValue === 'en'){
     shownList = enCountries;
   } else {
     shownList = trCountries;

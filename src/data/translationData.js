@@ -64,8 +64,8 @@ const translationData = {
       basics: "Basics",
       components: "Components",
       changeLogs: "Change Logs",
-      title1: "PAGES",
-      title2: "DOCS",
+      titleTop: "PAGES",
+      titleMid: "DOCS",
 
       // ---------------------------------------------------------------
       // Contact Page
