@@ -53,7 +53,7 @@ function DashboardPage() {
   // ----------------------------------------------------------------
   const { user, userEmail, userLang } = useContext(UserContext);
   const [userValue, setUserValue] = user;
-  const [userEmailValue, setUserEmailValue] = userEmail;
+  const [setUserEmailValue] = userEmail;
   const [userLangValue, setUserLang] = userLang;
 
   const handleChange = (event) => {
@@ -63,10 +63,10 @@ function DashboardPage() {
   let strings = new LocalizedStrings( translationData );
 
   let currentFlag;
-  if(userLangValue== "tr"){
-    currentFlag = <img src={ trFlag } style={{ width: 24 }} value="tr" />
+  if(userLangValue === "tr"){
+    currentFlag = <img src={ trFlag } style={{ width: 24 }} value="tr" alt='tr-flag'/>
   } else {
-    currentFlag = <img src={ usFlag } style={{ width: 24 }} value="en" />
+    currentFlag = <img src={ usFlag } style={{ width: 24 }} value="en" alt='us-flag'/>
   }
 
   // ----------------------------------------------------------------

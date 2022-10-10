@@ -141,8 +141,8 @@ const translationData = {
       basics: "Temel Öğeler",
       components: "Bileşenler",
       changeLogs: "Kayıtlar",
-      title1: "SAYFALAR",
-      title2: "DÖKÜMANLAR",
+      titleTop: "SAYFALAR",
+      titleMid: "DÖKÜMANLAR",
 
       // ---------------------------------------------------------------
       // Contact Page
