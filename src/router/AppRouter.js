@@ -5,8 +5,8 @@ import ContactPage from '../pages/ContactPage';
 import DashboardPage from '../pages/DashboardPage';
 
 export default function AppRouter() {
-  const [user, setUser] = useState(null);
-  const [userEmail, setUserEmail] = useState(null);
+  const [user, setUser] = useState("");
+  const [userEmail, setUserEmail] = useState("");
   const [userLang, setUserLang] = useState('en');
 
   return (

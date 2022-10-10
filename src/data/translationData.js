@@ -1,4 +1,4 @@
-const data = {
+const translationData = {
     en:{
       // ---------------------------------------------------------------
       // Dashboard Cards
@@ -72,6 +72,8 @@ const data = {
       // ---------------------------------------------------------------
       pageTitle: "Contact us",
       phoneNumber: "Phone Number",
+      country: "Country",
+      textAreaField: "Your Message",
     },
 
     tr: {
@@ -147,7 +149,9 @@ const data = {
       // ---------------------------------------------------------------
       pageTitle: "Bizimle İletişime Geçin",
       phoneNumber: "Telefon Numarası",
+      country: "Ülke",
+      textAreaField: "Mesajınız",
     }
   }
 
-  export { data };
+  export { translationData };

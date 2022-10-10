@@ -21,7 +21,7 @@ import { Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ClearIcon from '@mui/icons-material/Clear';
 import { UserContext } from '../context/UserContext';
-import { data } from '../data';
+import { translationData } from '../data/translationData';
 import LocalizedStrings from 'react-localization';
 
 export default function Sidebar({ ProileOpen, SidebarClose, currentFlag, user }) {
@@ -31,7 +31,7 @@ export default function Sidebar({ ProileOpen, SidebarClose, currentFlag, user })
 
   const { userLang } = React.useContext(UserContext);
   const [userLangValue, setUserLang] = userLang;
-  let strings = new LocalizedStrings( data );
+  let strings = new LocalizedStrings( translationData );
   strings.setLanguage(userLangValue);
 
   return (

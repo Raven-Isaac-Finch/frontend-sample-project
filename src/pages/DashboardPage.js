@@ -1,4 +1,4 @@
-import { data } from '../data';
+import { translationData } from '../data/translationData';
 import LocalizedStrings from 'react-localization';
 import PrimarySearchAppBar from '../components/Appbar';
 import Box from '@mui/material/Box';
@@ -60,7 +60,7 @@ function DashboardPage() {
     setUserLang(event.target.value);
   };
 
-  let strings = new LocalizedStrings( data );
+  let strings = new LocalizedStrings( translationData );
 
   let currentFlag;
   if(userLangValue== "tr"){

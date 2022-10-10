@@ -14,7 +14,7 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
 import { UserContext } from '../context/UserContext';
-import { data } from '../data';
+import { translationData } from '../data/translationData';
 import LocalizedStrings from 'react-localization';
 
 const Search = styled('div')(({ theme }) => ({
@@ -54,7 +54,7 @@ export default function PrimarySearchAppBar({ ProfileOpen, SidebarOpen, currentF
 
   const { userLang } = React.useContext(UserContext);
   const [userLangValue, setUserLang] = userLang;
-  let strings = new LocalizedStrings( data );
+  let strings = new LocalizedStrings( translationData );
   strings.setLanguage(userLangValue);
 
   const languageHandler = () => {

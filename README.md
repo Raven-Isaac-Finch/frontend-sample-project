@@ -6,4 +6,7 @@ A sample project with Material UI
 
 **There was no info regarding the sidebar popup, so you can display it by hitting the Dashboard breadcrumb
 
-**Skipped this: Please check if characters entered are valid and inform the user (e.g. red/green border) because users cant enter anything other than numbers -->
+**Skipped this: Please check if characters entered are valid and inform the user (e.g. red/green border) because users cant enter anything other than numbers 
+
+**TR country list is taken from Google Translate to save time, there might be slight translation issues.
+-->
