@@ -34,7 +34,7 @@ export default function ContactPage() {
     if(!e) {
       let alert = document.querySelector('#required-alert');
       alert.style.transform = 'translateY(0)'
-      setTimeout(() => alert.style.transform = 'translateY(-50px)', 3000); 
+      setTimeout(() => alert.style.transform = 'translateY(-80px)', 3000); 
     }
   };
   // ----------------------------------------------------------------
@@ -48,22 +48,27 @@ export default function ContactPage() {
 
   function handleFormSubmit() {
     let successAlert = document.querySelector('#success-alert');
-    successAlert.style.transform = 'translateY(0)'
-    setTimeout(() => successAlert.style.transform = 'translateY(-50px)', 3000); 
-    console.log(
-      {
-        "name": { formName },
-        "email": { formEmail },
-        "phonenumber": { formPhoneNum },
-        "country": { formCountry },
-        "text": { formTextField }
-      }
-    )
-    setFormName('');
-    setFormEmail('');
-    setFormPhoneNum('');
-    setFormCountry('');
-    setFormTextField('');
+    if(formEmail && formName){
+      successAlert.style.transform = 'translateY(0)'
+      setTimeout(() => successAlert.style.transform = 'translateY(-80px)', 3000); 
+      console.log(
+        {
+          "name": { formName },
+          "email": { formEmail },
+          "phonenumber": { formPhoneNum },
+          "country": { formCountry },
+          "text": { formTextField }
+        }
+      )
+      setFormName('');
+      setFormEmail('');
+      setFormPhoneNum('');
+      setFormCountry('');
+      setFormTextField('');
+    } else{
+      alert("Required fields are empty!");
+    }
+
   }
   // ----------------------------------------------------------------
   // Name Field
@@ -86,8 +91,9 @@ export default function ContactPage() {
         setFormEmail(mail);
         return
       } else {
-       alert("Invalid email address!")
-       return (false)
+       alert("Invalid email address!");
+       setFormEmail('');
+       return
       }
     }
   };
@@ -132,13 +138,13 @@ export default function ContactPage() {
           <Alert 
             id='required-alert'
             severity="error" 
-            sx={{ position: 'absolute', top: 0, width: '50%', transform: 'translateY(-50px)', transition: '0.2s ease-in-out'}}>
+            sx={{ position: 'absolute', top: 0, width: '50%', transform: 'translateY(-80px)', transition: '0.2s ease-in-out'}}>
               This field is required!
           </Alert>
           <Alert 
             id='success-alert'
             severity="success" 
-            sx={{ position: 'absolute', top: 0, width: '50%', transform: 'translateY(-50px)', transition: '0.2s ease-in-out'}}>
+            sx={{ position: 'absolute', top: 0, width: '50%', transform: 'translateY(-80px)', transition: '0.2s ease-in-out'}}>
               Thank you for contacting us!
           </Alert>
 

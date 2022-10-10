@@ -26,6 +26,8 @@ You can also find **.gitignore** file inside the project.
 
 ### <ins>**Notes**</ins>
 
++ **Regarding Responsive Design:** Mobile design is based on <ins>iPhone 12 Pro</ins>.
+
 + There was no information regarding the contact page and how to access it; therefore, I modified "Dashboard" on top left corner of the page to navigate to the contact page.
 
   
