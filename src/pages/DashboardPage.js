@@ -53,7 +53,7 @@ function DashboardPage() {
   // ----------------------------------------------------------------
   const { user, userEmail, userLang } = useContext(UserContext);
   const [userValue, setUserValue] = user;
-  const [setUserEmailValue] = userEmail;
+  const [userEmailValue, setUserEmailValue] = userEmail;
   const [userLangValue, setUserLang] = userLang;
 
   const handleChange = (event) => {
@@ -168,7 +168,10 @@ function DashboardPage() {
                 <Button 
                   variant="contained" 
                   size='large' 
-                  onClick={ handleProfileClose } 
+                  onClick={ () => {
+                    console.log(userEmailValue);
+                    handleProfileClose();
+                  } } 
                   color="error"
                   sx={{ textTransform: 'none', }}
                 >
