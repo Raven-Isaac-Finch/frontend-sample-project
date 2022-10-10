@@ -1,10 +1,10 @@
 # frontend-sample-project
 
-The project is live here at:
+The project is live here at: https://frontend-sample-project.netlify.app
 
 However, if you would like to get it working locally, feel free to clone the repo.
 
-  
+The project was created via <ins>create-react-app</ins>, so the layout is pretty much the same.
 
 ```
  npm install
