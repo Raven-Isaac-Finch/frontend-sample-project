@@ -92,7 +92,8 @@ function DashboardPage() {
   window.addEventListener('resize', function(){
     if(this.screen.width > 900) {
       let sidebarStyle = document.querySelector('.sidebar-container');
-      sidebarStyle.style.display = 'block';
+      if(!sidebarStyle === null)
+        sidebarStyle.style.display = 'block';
     }
   });
 

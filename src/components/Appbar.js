@@ -74,7 +74,7 @@ export default function PrimarySearchAppBar({ ProfileOpen, SidebarOpen, currentF
           </IconButton>
           <div>
             <div role="presentation">
-              <Breadcrumbs aria-label="breadcrumb" sx={{ height: 20 }}>
+              <Breadcrumbs aria-label="breadcrumb" sx={{ height: { xs: 40, md: 20 } }}>
                 <Link underline="hover" color="inherit" href="/" sx={{ display: 'flex', alignItems: 'flex-end' }}>
                   <HomeIcon sx={{ fontSize: 16 }}/>
                 </Link>
@@ -95,7 +95,7 @@ export default function PrimarySearchAppBar({ ProfileOpen, SidebarOpen, currentF
               variant="h6"
               noWrap
               component="div"
-              sx={{ display: { xs: 'block', sm: 'block' }, color: 'black', fontSize: 14, fontWeight: 'bold' }}
+              sx={{ display: { xs: 'none', sm: 'block' }, color: 'black', fontSize: 14, fontWeight: 'bold' }}
             >
               { strings.pageText }
             </Typography>
@@ -109,7 +109,7 @@ export default function PrimarySearchAppBar({ ProfileOpen, SidebarOpen, currentF
               />
             </Search>
           </Box>
-          <Box sx={{ display: { xs: 'block', md: 'flex' } }}>
+          <Box sx={{ display: { xs: 'flex', md: 'flex' }, marginRight: { xs: 2, md: 0 } }}>
             <IconButton
                 size="small"
                 edge="end"
