@@ -53,7 +53,7 @@ function DashboardPage() {
   // ----------------------------------------------------------------
   const { user, userEmail, userLang } = useContext(UserContext);
   const [userValue, setUserValue] = user;
-  const [setUserEmailValue] = userEmail;
+  const [userEmailValue, setUserEmailValue] = userEmail;
   const [userLangValue, setUserLang] = userLang;
 
   const handleChange = (event) => {
@@ -155,12 +155,15 @@ function DashboardPage() {
                   variant="contained" 
                   size='large'
                   sx={{ textTransform: 'none', }}
-                  onClick={ async () => {
+                  onClick={ () => {
                     let currentUserName = document.querySelector('#outlined-name-input');
                     setUserValue(currentUserName.value);
                     let currentUserEmail = document.querySelector('#outlined-email-input');
                     setUserEmailValue(currentUserEmail.value);
                     handleProfileClose();
+                    if(userEmailValue){
+                      console.log(userEmailValue);
+                    }
                   } }
                 >
                     { strings.btnLogin }
