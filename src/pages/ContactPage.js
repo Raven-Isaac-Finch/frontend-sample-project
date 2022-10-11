@@ -62,7 +62,24 @@ export default function ContactPage() {
       setFormPhoneNum('');
       setFormCountry('');
       setFormTextField('');
-    } else{
+    } else if(userValue && userEmailValue) {
+      successAlert.style.transform = 'translateY(0)'
+      setTimeout(() => successAlert.style.transform = 'translateY(-80px)', 3000); 
+      console.log(
+        {
+          "name": { userValue },
+          "email": { userEmailValue },
+          "phonenumber": { formPhoneNum },
+          "country": { formCountry },
+          "text": { formTextField }
+        }
+      )
+      setFormName('');
+      setFormEmail('');
+      setFormPhoneNum('');
+      setFormCountry('');
+      setFormTextField('');
+    } else {
       alert("Required fields are empty!");
     }
 

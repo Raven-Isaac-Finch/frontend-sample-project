@@ -68,6 +68,7 @@ function DashboardPage() {
 
   strings.setLanguage(userLangValue);
   return (
+<<<<<<< HEAD
     <Box sx={{ display: 'flex', justifyContent: 'center', width: { xs: '90%', md: '95%'}, gridRow: '2 / 3', gridColumn: '2 / 3', justifySelf: 'center' }}>
       <div>
         <Modal
@@ -145,6 +146,86 @@ function DashboardPage() {
               >
                   { strings.btnClose }
               </Button>
+=======
+    <div className="App">
+      <Box sx={{ width: '95vw' }}>
+        <div>
+          <Modal
+            open={open}
+            onClose={handleProfileClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style} component="form" >
+              <Typography id="modal-modal-title" variant="h5" component="h4" mb={4} sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                { strings.loginTitle }
+              </Typography>
+              <div>
+                <TextField
+                    id="outlined-name-input"
+                    label={ strings.loginLabelName }
+                    type="name"
+                    autoComplete="current-name"
+                />
+                <TextField
+                    id="outlined-email-input"
+                    label="E-mail"
+                    type="email"
+                    autoComplete="current-email"
+                />
+                <TextField
+                    id="outlined-password-input"
+                    label={ strings.loginLabelPassword }
+                    type="password"
+                    autoComplete="current-password"
+                />
+                <TextField
+                  id="standard-select-language"
+                  select
+                  label={ strings.loginLabelLanguage }
+                  value={ userLangValue }
+                  onChange={ handleChange }
+                  SelectProps={{
+                    native: true,
+                  }}
+                  helperText={ strings.loginLanguageHelper }
+                >
+                  {languages.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </TextField>
+              </div>
+              <Box mt={4} sx={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
+                <Button 
+                  variant="contained" 
+                  size='large'
+                  sx={{ textTransform: 'none', }}
+                  onClick={ async () => {
+                    let currentUserName = document.querySelector('#outlined-name-input');
+                    setUserValue(currentUserName.value);
+                    let currentUserEmail = document.querySelector('#outlined-email-input');
+                    setUserEmailValue(currentUserEmail.value);
+                    handleProfileClose();
+                  } }
+                >
+                    { strings.btnLogin }
+                </Button>
+                <Button 
+                  variant="contained" 
+                  size='large' 
+                  onClick={ () => {
+                    console.log(userEmailValue);
+                    handleProfileClose();
+                  } } 
+                  color="error"
+                  sx={{ textTransform: 'none', }}
+                >
+                    { strings.btnClose }
+                </Button>
+              </Box>
+>>>>>>> 5b323a54896636795a3cbe0ab49a71d5da4d1400
             </Box>
           </Box>
         </Modal>
