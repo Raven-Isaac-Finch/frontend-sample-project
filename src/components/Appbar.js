@@ -64,6 +64,7 @@ export default function PrimarySearchAppBar() {
     } else {
       setPageName(strings.pageText);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userLangValue]);
 
   const languageHandler = () => {

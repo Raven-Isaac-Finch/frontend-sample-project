@@ -48,6 +48,7 @@ export default function Sidebar() {
     let sidebarStyle = document.querySelector('.sidebar-container');
     sidebarStyle.style.display = 'none';
     console.log(open);
+    console.log(pageNameValue);
   }
 
   window.addEventListener('resize', function(){
