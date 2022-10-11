@@ -58,8 +58,8 @@ export default function Sidebar() {
   });
 
   return (
-    <Box className='sidebar-container' sx={{ display: { xs: 'none', md: 'block' }, zIndex: 1, position: {xs: 'absolute', md: 'relative'}, width: 300, top: {xs: 5, md: 0}, left: {xs: 5, md: 0}, gridRow: '1 / 3', gridColumn: '1 / 2', justifySelf: 'center' }} >
-      <Box sx={{ width: '100%', bgcolor: '#2b2828', color: 'white', borderRadius: 3 }}>
+    <Box className='sidebar-container' sx={{ display: { xs: 'none', md: 'block' }, zIndex: 1, position: {xs: 'absolute', md: 'relative'}, width: 300, top: {xs: 5, md: 0}, left: {xs: 5, md: 0}, gridRow: '1 /  3', gridColumn: '1 / 2', justifySelf: 'center' }} >
+      <Box sx={{ width: '100%', height: '100%', bgcolor: '#2b2828', color: 'white', borderRadius: 3 }}>
         <nav aria-label="main mailbox folders">
           <List>
             <ClearIcon onClick={ handleSidebarClose } 
@@ -102,7 +102,7 @@ export default function Sidebar() {
             <Typography sx={{ fontSize: 12, fontWeight: 'bold', paddingLeft: 3 }}>
               { strings.titleTop }
             </Typography>
-            <ListItem sx={{ paddingBottom: 0 }}>
+            <ListItem sx={{ padding: '0 17px' }}>
               <ListItemButton>
                 <ListItemIcon>
                   <PhotoIcon sx={{ color: 'white' }} />
@@ -111,7 +111,7 @@ export default function Sidebar() {
                 <KeyboardArrowDownIcon />
               </ListItemButton>
             </ListItem>
-            <ListItem sx={{ paddingBottom: 0 }}>
+            <ListItem sx={{ padding: '0 17px' }}>
               <ListItemButton>
                 <ListItemIcon>
                   <AppsIcon sx={{ color: 'white' }} />
@@ -120,7 +120,7 @@ export default function Sidebar() {
                 <KeyboardArrowDownIcon />
               </ListItemButton>
             </ListItem>
-            <ListItem sx={{ paddingBottom: 0 }}>
+            <ListItem sx={{ padding: '0 17px' }}>
               <ListItemButton>
                 <ListItemIcon>
                   <ShoppingBasketIcon sx={{ color: 'white' }} />
@@ -129,7 +129,7 @@ export default function Sidebar() {
                 <KeyboardArrowDownIcon />
               </ListItemButton>
             </ListItem>
-            <ListItem sx={{ paddingBottom: 0 }}>
+            <ListItem sx={{ padding: '0 17px' }}>
               <ListItemButton>
                 <ListItemIcon>
                   <AssignmentIcon sx={{ color: 'white' }} />
@@ -138,7 +138,7 @@ export default function Sidebar() {
                 <KeyboardArrowDownIcon />
               </ListItemButton>
             </ListItem>
-            <ListItem>
+            <ListItem sx={{ padding: '0 17px' }}>
               <ListItemButton  onClick={ () => {
                 toContact();
                 setPageName(strings.contactPageText); } } id='contactBtn'>
@@ -153,7 +153,7 @@ export default function Sidebar() {
             <Typography sx={{ fontSize: 12, fontWeight: 'bold', padding: '15px 0 0 25px' }}>
               { strings.titleMid }
             </Typography>
-            <ListItem sx={{ paddingBottom: 0 }}>
+            <ListItem sx={{ padding: '0 17px' }}>
               <ListItemButton>
                 <ListItemIcon>
                   <FoundationIcon sx={{ color: 'white' }} />
@@ -162,7 +162,7 @@ export default function Sidebar() {
                 <KeyboardArrowDownIcon />
               </ListItemButton>
             </ListItem>
-            <ListItem sx={{ paddingBottom: 0 }}>
+            <ListItem sx={{ padding: '0 17px' }}>
               <ListItemButton>
                 <ListItemIcon>
                   <ViewInArIcon sx={{ color: 'white' }} />
@@ -171,7 +171,7 @@ export default function Sidebar() {
                 <KeyboardArrowDownIcon />
               </ListItemButton>
             </ListItem>
-            <ListItem>
+            <ListItem sx={{ padding: '0 17px' }}>
               <ListItemButton>
                 <ListItemIcon>
                   <ReceiptLongIcon sx={{ color: 'white' }} />

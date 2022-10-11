@@ -12,6 +12,15 @@ import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 
+const StyleforTextArea = {
+  maxWidth: 300, 
+  minWidth: '25%', 
+  minHeight: 50, 
+  maxHeight: 100, 
+  borderRadius: 5, 
+  border: '1px solid lightgray',
+}
+
 export default function ContactPage() {
   // ----------------------------------------------------------------
   // Context: User & Language
@@ -64,7 +73,7 @@ export default function ContactPage() {
       setFormTextField('');
     } else if(userValue && userEmailValue) {
       successAlert.style.transform = 'translateY(0)'
-      setTimeout(() => successAlert.style.transform = 'translateY(-80px)', 3000); 
+      setTimeout(() => successAlert.style.transform = 'translateY(-180px)', 3000); 
       console.log(
         {
           "name": { userValue },
@@ -148,20 +157,20 @@ export default function ContactPage() {
     <React.Fragment>
       <CssBaseline />
       <Container sx={{ width: { xs: '90%', md: '100%'}, height: '95%' }} >
-        <Box sx={{ borderRadius: 3, display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexDirection: 'column', boxShadow: '0px 10px 30px 5px rgba(0,0,0,0.2)', position: 'relative', gridRow: '2 / 3', gridColumn: '2 / 3', width: '100%', height: '95%' }} >
+        <Box sx={{ borderRadius: 3, display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexDirection: 'column', boxShadow: '0px 10px 30px 5px rgba(0,0,0,0.2)', position: 'relative', gridRow: '2 / 3', gridColumn: '2 / 3', width: '100%', height: '100%' }} >
           <Alert 
             id='required-alert'
             severity="error" 
-            sx={{ position: 'absolute', top: 0, width: '50%', transform: 'translateY(-180px)', transition: '0.2s ease-in-out'}}>
+            sx={{ position: 'absolute', top: 0, width: { xs: '90%', md: '50%'}, transform: 'translateY(-200px)', transition: '0.2s ease-in-out'}}>
               { strings.requiredFieldAlert }
           </Alert>
           <Alert 
             id='success-alert'
             severity="success" 
-            sx={{ position: 'absolute', top: 0, width: '50%', transform: 'translateY(-180px)', transition: '0.2s ease-in-out'}}>
+            sx={{ position: 'absolute', top: 0, width: { xs: '90%', md: '50%'}, transform: 'translateY(-200px)', transition: '0.2s ease-in-out'}}>
               { strings.successAlert }
           </Alert>
-          <Typography variant='h4' component='h4'>
+          <Typography variant='h4' component='h4' align='center'>
             { strings.pageTitle }
           </Typography>
           <TextField
@@ -169,7 +178,7 @@ export default function ContactPage() {
               label={ strings.loginLabelName }
               type="name"
               value={ userValue ? userValue : formName }
-              sx={{ width: 300 }}
+              sx={{ width: { xs: 200, md: 300} }}
               onChange={ e => handleNewName(e.target.value) }
               onBlur={ e => requiredField(e.target.value) }
           />
@@ -177,7 +186,7 @@ export default function ContactPage() {
               id="outlined-email"
               label="E-mail"
               type="email"
-              sx={{ width: 300 }}
+              sx={{ width: { xs: 200, md: 300}  }}
               value={ userEmailValue ? userEmailValue : formEmail }
               onChange={ e => handleNewEmail(e.target.value) }
               onBlur={e => validateEmail(e.target.value)}
@@ -187,14 +196,14 @@ export default function ContactPage() {
               label={ strings.phoneNumber }
               type="text"
               value={ formPhoneNum }
-              sx={{ width: 300 }}
+              sx={{ width: { xs: 200, md: 300}  }}
               onChange={ handleChange }
           />
           <Autocomplete
             disablePortal
             id="combo-box-demo"
             options={ shownList }
-            sx={{ width: 300 }}
+            sx={{ width: { xs: 200, md: 300}  }}
             value= { formCountry }
             renderInput={(params) => <TextField {...params} label={ strings.country } 
             onBlur={ e => handleCountry(e.target.value) } />}
@@ -204,12 +213,12 @@ export default function ContactPage() {
             minRows={3}
             placeholder={ strings.textAreaField }
             value={ formTextField }
-            style={{ maxWidth: 300, minWidth: 300, minHeight: 50, maxHeight: 100, borderRadius: 5, border: '1px solid lightgray' }}
+            style={ StyleforTextArea }
             onChange={ e => handleTextArea(e.target.value) }
           />
           <Button 
             variant="contained" 
-            sx={{ width: 300 }}
+            sx={{ width: { xs: 200, md: 300} }}
             onClick={ handleFormSubmit }
           >
               Send

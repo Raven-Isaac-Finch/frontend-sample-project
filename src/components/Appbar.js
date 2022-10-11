@@ -54,9 +54,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function PrimarySearchAppBar() {
   const { userLang, modalState, pageName } = React.useContext(UserContext);
   const [userLangValue, setUserLang] = userLang;
-  const [pageNameValue] = pageName;
+  const [pageNameValue, setPageName] = pageName;
   let strings = new LocalizedStrings( translationData );
   strings.setLanguage(userLangValue);
+
+  React.useEffect(() => {
+    if(window.location.href === 'http://localhost:3000/contact'){
+      setPageName(strings.contactPageText);
+    } else {
+      setPageName(strings.pageText);
+    }
+  }, [userLangValue]);
 
   const languageHandler = () => {
     if(userLangValue === 'en') {
