@@ -74,6 +74,8 @@ const translationData = {
       phoneNumber: "Phone Number",
       country: "Country",
       textAreaField: "Your Message",
+      successAlert: "Thank you for contacting us!",
+      requiredFieldAlert: "This field is required!",
     },
 
     tr: {
@@ -151,6 +153,8 @@ const translationData = {
       phoneNumber: "Telefon Numarası",
       country: "Ülke",
       textAreaField: "Mesajınız",
+      successAlert: "Bizimle iletişime geçtiğiniz için teşekkür ederiz!",
+      requiredFieldAlert: "Bu alan zorunlu!",
     }
   }
 

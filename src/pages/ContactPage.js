@@ -9,13 +9,10 @@ import { translationData } from '../data/translationData';
 import { countryList } from '../data/countriesData';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 
 export default function ContactPage() {
-  let history = useNavigate();
   // ----------------------------------------------------------------
   // Context: User & Language
   // ----------------------------------------------------------------
@@ -33,8 +30,8 @@ export default function ContactPage() {
   function requiredField(e) {
     if(!e) {
       let alert = document.querySelector('#required-alert');
-      alert.style.transform = 'translateY(0)'
-      setTimeout(() => alert.style.transform = 'translateY(-80px)', 3000); 
+      alert.style.transform = 'translateY(-115px)'
+      setTimeout(() => alert.style.transform = 'translateY(-180px)', 3000); 
     }
   };
   // ----------------------------------------------------------------
@@ -49,8 +46,8 @@ export default function ContactPage() {
   function handleFormSubmit() {
     let successAlert = document.querySelector('#success-alert');
     if(formEmail && formName){
-      successAlert.style.transform = 'translateY(0)'
-      setTimeout(() => successAlert.style.transform = 'translateY(-80px)', 3000); 
+      successAlert.style.transform = 'translateY(-115px)'
+      setTimeout(() => successAlert.style.transform = 'translateY(-180px)', 3000); 
       console.log(
         {
           "name": { formName },
@@ -133,29 +130,20 @@ export default function ContactPage() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="md">
-        <Box sx={{ borderRight: '1px solid gray', borderLeft: '1px solid gray', height: '100vh', display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexDirection: 'column', boxShadow: '0px 0px 50px 10px rgba(0,0,0,0.4)', position: 'relative' }} >
+      <Container sx={{ width: { xs: '90%', md: '100%'}, height: '95%' }} >
+        <Box sx={{ borderRadius: 3, display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexDirection: 'column', boxShadow: '0px 10px 30px 5px rgba(0,0,0,0.2)', position: 'relative', gridRow: '2 / 3', gridColumn: '2 / 3', width: '100%', height: '95%' }} >
           <Alert 
             id='required-alert'
             severity="error" 
-            sx={{ position: 'absolute', top: 0, width: '50%', transform: 'translateY(-80px)', transition: '0.2s ease-in-out'}}>
-              This field is required!
+            sx={{ position: 'absolute', top: 0, width: '50%', transform: 'translateY(-180px)', transition: '0.2s ease-in-out'}}>
+              { strings.requiredFieldAlert }
           </Alert>
           <Alert 
             id='success-alert'
             severity="success" 
-            sx={{ position: 'absolute', top: 0, width: '50%', transform: 'translateY(-80px)', transition: '0.2s ease-in-out'}}>
-              Thank you for contacting us!
+            sx={{ position: 'absolute', top: 0, width: '50%', transform: 'translateY(-180px)', transition: '0.2s ease-in-out'}}>
+              { strings.successAlert }
           </Alert>
-
-          <ArrowBackIosNewIcon 
-            sx={{
-              position: 'absolute', 
-              left: 10,
-              top: 15,
-              fontSize: 40,
-              cursor: 'pointer'}}
-              onClick={() => history(-1)}/>
           <Typography variant='h4' component='h4'>
             { strings.pageTitle }
           </Typography>

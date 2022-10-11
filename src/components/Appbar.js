@@ -16,6 +16,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import { UserContext } from '../context/UserContext';
 import { translationData } from '../data/translationData';
 import LocalizedStrings from 'react-localization';
+import trFlag from '../assets/tr-flag.png';
+import usFlag from '../assets/us-flag.png';
 
 const Search = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -50,9 +52,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 
-export default function PrimarySearchAppBar({ ProfileOpen, SidebarOpen, currentFlag }) {
-
-  const { userLang } = React.useContext(UserContext);
+export default function PrimarySearchAppBar() {
+  const { userLang, modalState } = React.useContext(UserContext);
   const [userLangValue, setUserLang] = userLang;
   let strings = new LocalizedStrings( translationData );
   strings.setLanguage(userLangValue);
@@ -65,37 +66,58 @@ export default function PrimarySearchAppBar({ ProfileOpen, SidebarOpen, currentF
     };
   }
 
+  let currentFlag;
+  if(userLangValue === "tr"){
+    currentFlag = <img src={ trFlag } style={{ width: 24 }} value="tr" alt='tr-flag'/>
+  } else {
+    currentFlag = <img src={ usFlag } style={{ width: 24 }} value="en" alt='us-flag'/>
+  }
+
+  // ----------------------------------------------------------------
+  // Sidebar for Mobile
+  // ----------------------------------------------------------------
+  const [open, setOpen] = modalState;
+  const handleProfileOpen = () => setOpen(true);
+  function handleSidebarOpen() {
+    let sidebarStyle = document.querySelector('.sidebar-container');
+    sidebarStyle.style.display = 'block';
+    console.log(open);
+  }
+
   return (
-    <Box sx={{ flexGrow: 1 }} >
+    <Box sx={{ flexGrow: 1, gridRow: '1 / 2', gridColumn: '2 / 3', width: { xs: '90%', md: '95%'}, justifySelf: 'center', marginTop: { xs: '20px', md: 0}, marginBottom: { xs: '30px', md: 0} }} >
       <AppBar position="static" sx={{borderRadius: 3, boxShadow: '0px 5px 100px -15px rgba(0,0,0,0.2)', backgroundColor: 'white'}}>
         <Toolbar>
-          <IconButton size="large" edge="start" color="inherit" aria-label="open drawer" sx={{ mr: 2 }} >
-            <MenuIcon sx={{ color: 'black' }}/>
+          <IconButton size="large" edge="start" color="inherit" aria-label="open drawer" sx={{ mr: { xs: 0, md: 2 } }} onClick={ handleSidebarOpen } >
+            <MenuIcon sx={{ color: 'black' }} />
           </IconButton>
           <div>
             <div role="presentation">
-              <Breadcrumbs aria-label="breadcrumb" sx={{ height: { xs: 40, md: 20 } }}>
+              <Breadcrumbs aria-label="breadcrumb" sx={{ height: { xs: 20, md: 20 } }}>
                 <Link underline="hover" color="inherit" href="/" sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                  <HomeIcon sx={{ fontSize: 16 }}/>
+                  <HomeIcon sx={{fontSize: { xs: 12, md: 14 }}}/>
                 </Link>
                 <Link
                   underline="hover"
                   color="inherit"
-                  sx={{ fontSize: 12, cursor: 'pointer' }}
-                  onClick={ SidebarOpen }
+                  sx={{ fontSize: { xs: 10, md: 12 }, cursor: 'pointer' }}
                 >
                   { strings.prevPageText }
                 </Link>
-                <Typography color="text.primary" sx={{ fontSize: 12 }}>
+                <Link
+                  underline="hover"
+                  color="inherit"
+                  sx={{ fontSize: { xs: 10, md: 12 }, fontWeight: 'bold', cursor: 'pointer' }}
+                >
                   { strings.pageText }
-                </Typography>
+                </Link>
               </Breadcrumbs>
             </div>
             <Typography
               variant="h6"
               noWrap
               component="div"
-              sx={{ display: { xs: 'none', sm: 'block' }, color: 'black', fontSize: 14, fontWeight: 'bold' }}
+              sx={{ display: { xs: 'block', sm: 'block' }, color: 'black', fontSize: 14, fontWeight: 'bold', margin: 0, padding: 0 }}
             >
               { strings.pageText }
             </Typography>
@@ -116,7 +138,7 @@ export default function PrimarySearchAppBar({ ProfileOpen, SidebarOpen, currentF
                 aria-label="account of current user"
                 aria-haspopup="true"
                 color="inherit"
-                onClick={ ProfileOpen } >
+                onClick={ handleProfileOpen } >
               <AccountCircle sx={{ color: 'black' }} />
             </IconButton>
             <IconButton size="small" sx={{ margin: '0 2px 0 5px' }} onClick={ languageHandler }>
