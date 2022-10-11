@@ -50,6 +50,7 @@ const translationData = {
       searchPlaceholder: "Search here",
       prevPageText: "Dashboards",
       pageText: "Analytics",
+      contactPageText: "Contact", 
 
       // ---------------------------------------------------------------
       // Sidebar
@@ -129,6 +130,7 @@ const translationData = {
       searchPlaceholder: "Arama",
       prevPageText: "Panel",
       pageText: "Analizler",
+      contactPageText: "İletişim", 
 
       // ---------------------------------------------------------------
       // Sidebar

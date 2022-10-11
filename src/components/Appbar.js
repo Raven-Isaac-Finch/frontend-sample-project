@@ -51,10 +51,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-
 export default function PrimarySearchAppBar() {
-  const { userLang, modalState } = React.useContext(UserContext);
+  const { userLang, modalState, pageName } = React.useContext(UserContext);
   const [userLangValue, setUserLang] = userLang;
+  const [pageNameValue] = pageName;
   let strings = new LocalizedStrings( translationData );
   strings.setLanguage(userLangValue);
 
@@ -109,7 +109,7 @@ export default function PrimarySearchAppBar() {
                   color="inherit"
                   sx={{ fontSize: { xs: 10, md: 12 }, fontWeight: 'bold', cursor: 'pointer' }}
                 >
-                  { strings.pageText }
+                  { pageNameValue }
                 </Link>
               </Breadcrumbs>
             </div>
@@ -119,7 +119,7 @@ export default function PrimarySearchAppBar() {
               component="div"
               sx={{ display: { xs: 'block', sm: 'block' }, color: 'black', fontSize: 14, fontWeight: 'bold', margin: 0, padding: 0 }}
             >
-              { strings.pageText }
+              { pageNameValue }
             </Typography>
           </div>
           <Box sx={{ flexGrow: 1 }} />

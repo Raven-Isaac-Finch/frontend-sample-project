@@ -26,10 +26,12 @@ import { translationData } from '../data/translationData';
 import LocalizedStrings from 'react-localization';
 
 export default function Sidebar() {
-  const { user, userLang, modalState } = React.useContext(UserContext);
+  const { user, userLang, modalState, pageName } = React.useContext(UserContext);
   const [userValue] = user;
   const [userLangValue] = userLang;
   const [open, setOpen] = modalState;
+  const [pageNameValue, setPageName] = pageName;
+
   const handleProfileOpen = () => setOpen(true);
 
   const navigate = useNavigate();
@@ -86,7 +88,10 @@ export default function Sidebar() {
             </ListItem>
             <Divider sx={{ borderImage: 'linear-gradient(to right, #2b2828, #555555, #2b2828) 1' }}/>
             <ListItem>
-              <ListItemButton onClick={ toDashboard }>
+              <ListItemButton onClick={ () => {
+                toDashboard();
+                setPageName(strings.pageText);
+              } } id='dashboardBtn'>
                 <ListItemIcon>
                   <DashboardIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
@@ -134,7 +139,9 @@ export default function Sidebar() {
               </ListItemButton>
             </ListItem>
             <ListItem>
-              <ListItemButton  onClick={ toContact }>
+              <ListItemButton  onClick={ () => {
+                toContact();
+                setPageName(strings.contactPageText); } } id='contactBtn'>
                 <ListItemIcon>
                   <ConnectWithoutContactIcon sx={{ color: 'white' }} />
                 </ListItemIcon>

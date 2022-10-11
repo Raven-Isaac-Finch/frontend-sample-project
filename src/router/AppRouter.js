@@ -11,6 +11,7 @@ export default function AppRouter() {
   const [userEmail, setUserEmail] = useState("");
   const [userLang, setUserLang] = useState('en');
   const [open, setOpen] = useState(false);
+  const [pageName, setPageName] = useState("Analytics");
 
   return (
     <>
@@ -19,7 +20,8 @@ export default function AppRouter() {
             user: [user, setUser], 
             userEmail: [userEmail, setUserEmail], 
             userLang: [userLang, setUserLang],
-            modalState: [open, setOpen] 
+            modalState: [open, setOpen],
+            pageName: [pageName, setPageName]
           }}>
             <Sidebar />
             <PrimarySearchAppBar />
